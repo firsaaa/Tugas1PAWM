@@ -1,3 +1,14 @@
+/*=============== LOGIN ===============*/
+document.getElementById("loginForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+    if (email) {
+        window.location.href = "homepage.html"; // Redirect to homepage
+    } else {
+        alert("Please enter a valid email.");
+    }
+});
+
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
@@ -21,6 +32,35 @@ if(navClose){
 
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLink = document.querySelectorAll('.nav__link')
+
+function removeActiveClass() {
+    document.querySelectorAll('.navbar a').forEach(function(link) {
+        link.classList.remove('active');
+    });
+}
+
+// Function to add 'active' class based on section visibility
+function setActiveSection() {
+    const sections = document.querySelectorAll('section');
+    let currentSection = '';
+    
+    sections.forEach(function(section) {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 50) { // Adjust threshold for accuracy
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    removeActiveClass();
+
+    // Add active class to the current section's link
+    if (currentSection) {
+        document.querySelector(`a[href="#${currentSection}"]`).classList.add('active');
+    }
+}
+
+// Event listener for scrolling
+window.addEventListener('scroll', setActiveSection);
 
 function linkAction(){
     const navMenu = document.getElementById('nav-menu')
@@ -46,24 +86,35 @@ function scrollUp(){
 window.addEventListener('scroll', scrollUp)
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-const sections = document.querySelectorAll('section[id]')
-
-function scrollActive(){
-    const scrollY = window.pageYOffset
-
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
-
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
-        }
-    })
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
 }
-window.addEventListener('scroll', scrollActive)
+
+// Function to add the 'show' class when the section is in view
+function handleScroll() {
+    const overviewSection = document.querySelector('.overview');
+    if (isInViewport(overviewSection)) {
+        overviewSection.classList.add('show');
+    }
+}
+
+// Listen for the scroll event
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('load', handleScroll);
+
+document.querySelector('.toggle-password').addEventListener('click', function() {
+    const passwordField = document.getElementById('password');
+    const toggleButton = this;
+
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleButton.textContent = 'Hide';
+    } else {
+        passwordField.type = 'password';
+        toggleButton.textContent = 'Show';
+    }
+});
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
@@ -72,6 +123,28 @@ const sr = ScrollReveal({
     delay: 400,
     // reset: true
 })
+
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form from refreshing the page
+    
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Basic validation for email and password
+    if (validateEmail(email) && password.length >= 8) {
+        // Redirect to homepage if email is valid and password is long enough
+        window.location.href = "index.html";
+    } else {
+        alert("Please enter a valid email and a password with at least 8 characters.");
+    }
+});
+
+// Basic email validation function
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
 
 sr.reveal(`.home__header, .section__title`,{delay: 600})
 sr.reveal(`.home__footer`,{delay: 700})

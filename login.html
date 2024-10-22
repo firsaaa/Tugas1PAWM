@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!--================ FAVICON ================-->
+    <link rel="shortcut icon" href="assets/img/logoitb.png" type="image/x-icon">
+    
+    <!--================ ICON ================-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  
+    <!--================ CSS ================-->
+    <link rel="stylesheet" href="assets/css/style.css">
+  
+    <title>Virtual Lab Institut Teknologi Bandung</title>
+  
+</head>
+<body>
+    <!--================ HEADER ================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="assets/img/logoitb.png" alt="">
+            </a>
+        </nav>
+    </header>
+
+    <!--================ FORM CONTAINER ================-->
+    <main class="center-container">
+        <div class="form-container">
+            <h2>Create an account</h2>
+            <p>Already have an account? <a href="#">Log in</a></p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="name">What should we call you?</label>
+                    <input type="text" id="name" placeholder="Enter your profile name">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">What's your email?</label>
+                    <input type="email" id="email" placeholder="Enter your email address">
+                </div>
+
+                <div class="input-group password-group">
+                    <label for="password">Create a password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                    <button type="button" class="toggle-password">Hide</button>
+                </div>
+
+                <p class="password-info">Use 8 or more characters with a mix of letters, numbers & symbols</p>
+
+                <button type="submit" class="create-account-btn">Sign in</button>
+            </form>
+
+            <p class="terms">By creating an account, you agree to the <a href="#">Terms of use</a> and <a href="#">Privacy Policy</a>.</p>
+
+            <div class="social-login">
+                <p>OR Continue with</p>
+                <div class="social-buttons">
+                    <button class="social-btn facebook">Facebook</button>
+                    <button class="social-btn google">Google</button>
+                    <button class="social-btn apple">Apple</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+</body>
+</html>

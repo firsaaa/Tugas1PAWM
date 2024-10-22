@@ -4,18 +4,19 @@
 :root {
   --header-height: 3rem;
   /*========== Colors ==========*/
-  --hue-color: 206;
-  --black-color: hsl(var(--hue-color), 4%, 4%);
-  --black-color-alt: hsl(var(--hue-color), 4%, 8%);
-  --title-color: hsl(var(--hue-color), 4%, 95%);
-  --text-color: hsl(var(--hue-color), 4%, 75%);
-  --text-color-light: hsl(var(--hue-color), 4%, 65%);
-  --white-color: #FFF;
-  --body-color: hsl(var(--hue-color), 4%, 6%);
-  --container-color: hsl(var(--hue-color), 4%, 10%);
-  --text-gradient: linear-gradient(hsl(var(--hue-color), 4%, 24%), hsl(var(--hue-color), 4%, 8%));
-  --scroll-thumb-color: hsl(var(--hue-color), 4%, 16%);
-  --scroll-thumb-color-alt: hsl(var(--hue-color), 4%, 20%);
+  --hue-color: hsl(0, 0%, 100%);
+  --white-color: hsl(0, 0%, 100%);
+  --white-color-alt: hsl(0, 0%, 100%);
+  --title-color: #0861ba;
+  --text-color: hsl(0, 0%, 100%);
+  --text-color-light: hsl(0, 0%, 80%);
+  --body-color: hsl(0, 0%, 100%); 
+  --container-color: hsl(0, 0%, 95%); 
+  --text-gradient: linear-gradient(#FFFFFF, #FFFFF); /* White gradient */
+  --scroll-thumb-color: hsl(var(--hue-color), 0%, 16%);
+  --scroll-thumb-color-alt: hsl(var(--hue-color), 0%, 20%);
+
+
   /*========== Font and typography ==========*/
   --body-font: 'Poppins', sans-serif;
   --biggest-font-size: 5rem;
@@ -159,6 +160,14 @@ img {
   z-index: 1;
 }
 
+.header {
+  background-color: var(--white-color);
+  padding: 5px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Make sure it stays on top of other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
 /*=============== NAV ===============*/
 .nav {
   position: relative;
@@ -180,6 +189,65 @@ img {
   font-size: 1.8rem;
   color: var(--white-color);
   cursor: pointer;
+}
+
+/* Styling for the header and navigation */
+.navbar { 
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+/* Bold text with a shadow for the active or hovered item */
+.navbar ul li a:hover,
+.navbar ul li a.active {
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow effect */
+  color: white; /* Keep the color white */
+}
+
+/* Ensure non-active links are still readable */
+.navbar ul li a {
+  color: white;
+  font-weight: normal;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  height: calc(100vh - 75px); /* Full height minus header */
+  width: 100%; /* Ensure full width */
+}
+
+.form-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 350px;
+  text-align: center;
 }
 
 @media screen and (max-width: 767px) {
@@ -215,9 +283,14 @@ img {
 
 .nav__link:hover {
   background: var(--white-color);
-  color: transparent;
+  color: lightgray;
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+.nav__link.active {
+  font-weight: bold; 
+  color: white;
 }
 
 .nav__close {
@@ -247,60 +320,56 @@ img {
   background-clip: text;
 }
 
-/*=============== HOME ===============*/
-.home__img {
-  width: 250px;
-  position: absolute;
-  top: -16rem;
-  right: 1.5rem;
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .courses {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px auto;
+    max-width: 1200px;
 }
 
-.home__data {
-  padding-top: 5rem;
+  .course {
+      text-align: center;
+      max-width: 400px; /* Sesuaikan dengan desain */
+  }
+
+  .course__image {
+      width: 100%; /* Lebar gambar penuh */
+      height: 300px; /* Atur tinggi gambar */
+      object-fit: cover; /* Menjaga proporsi gambar */
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+  }
+
+  .course__image:hover {
+      transform: scale(1.05); /* Efek hover gambar */
+  }
+
+  .course__title {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #333;
+  }
 }
 
-.home__header {
-  position: relative;
-}
+  .overview {
+    background-color: #e0ebff;
+    padding: 30px;
+    margin-top: 50px;
+    text-align: center;
+  }
 
-.home__title {
-  position: absolute;
-  top: -4rem;
-  left: 1rem;
-  line-height: 6rem;
-  font-size: var(--biggest-font-size);
-  background: var(--text-gradient);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.home__subtitle {
-  font-size: var(--big-font-size);
-  margin-bottom: var(--mb-2-5);
-}
-
-.home__title-description {
-  font-size: var(--h3-font-size);
-  font-weight: var(--font-medium);
-  margin-bottom: var(--mb-1);
-}
-
-.home__description {
-  margin-bottom: var(--mb-2-5);
-  line-height: var(--text-line-height);
-}
-
-.home__price {
-  font-size: var(--h3-font-size);
-  font-weight: var(--font-semi-bold);
-  margin-left: var(--mb-0-75);
-}
+  .section__title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
 
 /*=============== BUTTONS ===============*/
 .button {
   display: inline-block;
-  background-color: var(--black-color);
+  background-color: var(--white-color);
   color: var(--white-color);
   padding: 1rem 1.25rem;
   border-radius: .5rem;
@@ -308,7 +377,7 @@ img {
 }
 
 .button:hover {
-  background-color: var(--black-color-alt);
+  background-color: var(--white-color-alt);
 }
 
 .button__icon {
@@ -321,150 +390,141 @@ img {
   column-gap: .75rem;
 }
 
-/*=============== SPONSOR ===============*/
-.sponsor__img {
-  width: 90px;
+.form-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 100px;
 }
 
-.sponsor__container {
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  row-gap: 5rem;
-  justify-items: center;
-  align-items: center;
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0px;
 }
 
-/*=============== SPECS ===============*/
-.specs__container {
-  position: relative;
+p {
+    font-size: 0.9rem;
+    margin-top: 2px;
+    margin-bottom: -20px;
 }
 
-.specs__content {
-  row-gap: 1.5rem;
+a {
+    color: #007bff;
+    text-decoration: none;
 }
 
-.specs__data {
-  display: grid;
-  row-gap: .25rem;
+/* Input Field Styling */
+.input-group {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    text-align: left;
 }
 
-.specs__icon {
-  font-size: 1.2rem;
-  color: var(--white-color);
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
 }
 
-.specs__title {
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.specs__subtitle {
-  font-size: var(--smaller-font-size);
+.password-group {
+    position: relative;
+    margin-bottom: 10px;
 }
 
-.specs__data:nth-child(1), .specs__data:nth-child(4) {
-  margin-left: 1.5rem;
+.password-group .toggle-password {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    margin-bottom: px;
 }
 
-.specs__img {
-  width: 250px;
-  position: absolute;
-  top: 2rem;
-  right: -4rem;
+/* Password Info Text */
+.password-info {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 10px;
 }
 
-/*=============== CASE ===============*/
-.case__container {
-  position: relative;
-  grid-template-columns: repeat(2, 1fr);
+/* Button Styling */
+.create-account-btn {
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    background-color: #0861ba;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    color: white;
 }
 
-.case__data {
-  padding: 5rem 0 3rem;
+.create-account-btn:hover {
+    background-color: #bbb;
 }
 
-.case__img {
-  width: 250px;
-  position: absolute;
-  left: -7rem;
+/* Terms Text */
+.terms {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 10px;
 }
 
-.case__description {
-  margin-bottom: var(--mb-1-5);
-  line-height: var(--text-line-height);
+/* Social Login Section */
+.social-login p {
+    font-size: 0.9rem;
+    margin-bottom: px;
 }
 
-/*=============== DISCOUNT ===============*/
-.discount__container {
-  position: relative;
-  background-color: var(--container-color);
-  padding: 2rem 1.5rem;
-  border-radius: .75rem;
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
 }
 
-.discount__title {
-  font-size: var(--h3-font-size);
-  margin-bottom: var(--mb-0-75);
+.social-btn {
+    width: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
 }
 
-.discount__description {
-  margin-bottom: var(--mb-1);
+.social-btn.facebook {
+    background-color: #3b5998;
+    color: white;
 }
 
-.discount__img {
-  width: 300px;
-  position: absolute;
-  top: 4rem;
-  right: -11rem;
+.social-btn.google {
+    background-color: #db4437;
+    color: white;
 }
 
-/*=============== PRODUCTS ===============*/
-.products__line {
-  line-height: 4rem;
+.social-btn.apple {
+    background-color: black;
+    color: white;
 }
 
-.products__container {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5rem 1.5rem;
-  padding-top: 3rem;
+.social-btn:hover {
+    opacity: 0.8;
 }
 
-.products__card {
-  position: relative;
-  height: 132px;
-  background-color: var(--container-color);
-  padding: .75rem;
-  border-radius: .5rem;
-  display: grid;
-}
-
-.products__img {
-  width: 80px;
-  position: absolute;
-  inset: 0;
-  margin-right: auto;
-  margin-left: auto;
-  top: -3rem;
-}
-
-.products__content {
-  align-self: flex-end;
-}
-
-.products__title, .products__price {
-  font-size: var(--small-font-size);
-}
-
-.products__price {
-  font-weight: var(--font-semi-bold);
-}
-
-.products__button {
-  position: absolute;
-  right: .5rem;
-  bottom: .5rem;
-  padding: .5rem;
-  border-radius: .35rem;
-}
 
 /*=============== FOOTER ===============*/
 .footer__container {
@@ -589,6 +649,104 @@ img {
   background-color: var(--scroll-thumb-color-alt);
 }
 
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2.5em;
+  color: #003366;
+}
+
+h2 {
+  text-align: center;
+  color: #004d99;
+  margin-bottom: 30px;
+}
+.subject-cards {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 15px;
+  text-align: center;
+  padding: 20px;
+  width: 300px;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card:nth-child(1) img { 
+  max-width: 70%;
+  margin: auto;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #004d99;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #003366;
+}
+
+.overview {
+  text-align: center;
+  margin: 40px 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.overview.show {
+  opacity: 1;
+  transform: translateY(0); /* Move it back to its natural position */
+}
+
+.overview h3 {
+  color: #004d99;
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.overview p {
+  background-color: #84adea;
+  padding: 30px;
+  border-radius: 8px;
+  font-size: 1em;
+  line-height: 1.6;
+  color: #FFFFFF;
+  max-width: 700px;
+  margin: auto;
+}
+
+
+
 /*=============== MEDIA QUERIES ===============*/
 /* For small devices */
 @media screen and (max-width: 340px) {
@@ -632,6 +790,7 @@ img {
     justify-content: center;
   }
 }
+
 
 /* For medium devices */
 @media screen and (min-width: 576px) {
