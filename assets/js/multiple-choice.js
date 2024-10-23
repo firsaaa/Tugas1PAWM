@@ -1,53 +1,53 @@
 const questions = [
     { 
-        question: "What is the capital of France?", 
-        answers: ["Paris", "London", "Berlin", "Rome"], 
+        question: "Dalam membuat karya ilmiah, komponen utama yang perlu diperhatikan dalam daftar pustaka adalah", 
+        answers: ["Pengarang, tahun, judul, penerbit", "Pengarang, tempat terbit, halaman", "Judul, penerbit, tempat terbit", "Tahun, tempat terbit, halaman"], 
         correct: 0 
     },
     { 
-        question: "Which planet is known as the Red Planet?", 
-        answers: ["Venus", "Mars", "Jupiter", "Saturn"], 
+        question: "Salah satu unsur yang tidak wajib ada dalam karya ilmiah adalah", 
+        answers: ["Daftar pustaka", "Indeks", "Daftar tabel", "Prakata"], 
         correct: 1 
     },
     { 
-        question: "Who wrote 'To Kill a Mockingbird'?", 
-        answers: ["Harper Lee", "George Orwell", "Mark Twain", "J.K. Rowling"], 
+        question: "Ciri topik karya tulis yang baik di antaranya", 
+        answers: ["Problematik, aktual, terbatas", "Lugas, mendalam, tidak terbatas", "Objektif, umum, tidak problematik", "Faktual, sangat luas, tidak terbatas"], 
         correct: 0 
     },
     { 
-        question: "What is the boiling point of water?", 
-        answers: ["90°C", "100°C", "110°C", "80°C"], 
-        correct: 1 
-    },
-    { 
-        question: "Who painted the Mona Lisa?", 
-        answers: ["Vincent Van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"], 
+        question: "Jenis plagiarisme yang terjadi ketika seseorang mengutip karya orang lain tanpa menyebutkan sumbernya disebut", 
+        answers: ["Self plagiarism", "Plagiarisme kepengarangan", "Plagiarisme kalimat", "Plagiarisme sebagian"], 
         correct: 2 
     },
     { 
-        question: "What is the smallest prime number?", 
-        answers: ["1", "2", "3", "5"], 
-        correct: 1 
-    },
-    { 
-        question: "Which is the largest ocean?", 
-        answers: ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"], 
+        question: "Jenis paragraf yang berisi penggambaran secara detail mengenai objek atau suasana disebut", 
+        answers: ["Paragraf narasi", "Paragraf deduktif", "Paragraf deskripsi", "Paragraf induktif"], 
         correct: 2 
     },
     { 
-        question: "How many continents are there?", 
-        answers: ["5", "6", "7", "8"], 
+        question: "Ciri-ciri karangan ilmiah antara lain adalah", 
+        answers: ["Lugas dan subjektif", "Informatif dan berlebihan", "Objektif dan logis", "Subjektif dan analitis"], 
         correct: 2 
     },
     { 
-        question: "What is the largest desert in the world?", 
-        answers: ["Gobi", "Sahara", "Arctic", "Antarctic"], 
-        correct: 3 
+        question: "Dalam membuat karya ilmiah, komponen utama yang perlu diperhatikan dalam daftar pustaka adalah", 
+        answers: ["Pengarang, tahun, judul, penerbit", "Pengarang, tempat terbit, halaman", "Judul, penerbit, tempat terbit", "Tahun, tempat terbit, halaman"], 
+        correct: 0 
     },
     { 
-        question: "What is the longest river in the world?", 
-        answers: ["Amazon", "Nile", "Yangtze", "Mississippi"], 
+        question: "Salah satu unsur yang tidak wajib ada dalam karya ilmiah adalah", 
+        answers: ["Daftar pustaka", "Indeks", "Daftar tabel", "Prakata"], 
         correct: 1 
+    },
+    { 
+        question: "Ciri topik karya tulis yang baik di antaranya", 
+        answers: ["Problematik, aktual, terbatas", "Lugas, mendalam, tidak terbatas", "Objektif, umum, tidak problematik", "Faktual, sangat luas, tidak terbatas"], 
+        correct: 0 
+    },
+    { 
+        question: "Jenis plagiarisme yang terjadi ketika seseorang mengutip karya orang lain tanpa menyebutkan sumbernya disebut", 
+        answers: ["Self plagiarism", "Plagiarisme kepengarangan", "Plagiarisme kalimat", "Plagiarisme sebagian"], 
+        correct: 2
     }
 ];
 

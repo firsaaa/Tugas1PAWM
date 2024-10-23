@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const correctAnswers = {
         1: "sitasi",
-        2: "catatan",
-        3: "bukti",
-        4: "karya",
-        5: "disiplin"
+        2: "pendahuluan",
+        3: "objektif",
+        4: "APA",
+        5: "lampiran"
     };
 
     let currentQuestion = 1;
