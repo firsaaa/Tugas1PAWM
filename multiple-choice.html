@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/multiple-choice.css">
+    <title>Multiple Choice Quiz</title>
+</head>
+<body>
+    <header>
+        <!-- Future header content here -->
+    </header>
+    <div class="quiz-wrapper">
+        <div class="quiz-container">
+            <div class="question-numbers">
+                <ul id="question-list">
+                    <!-- Question numbers generated dynamically -->
+                </ul>
+            </div>
+            <div class="quiz-box">
+                <div id="question-container">
+                    <!-- Question content will appear here -->
+                </div>
+                <div class="quiz-buttons">
+                    <button id="prev-question" class="button" disabled>Previous</button>
+                    <button id="next-question" class="button">Next</button>
+                    <button id="submit-quiz" class="button" style="display: none;">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="score-section" style="display: none;">
+            <p>Your score is: <span id="score">0</span>/100</p>
+        </div>
+    </div>
+    <script src="assets/js/multiple-choice.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill-in-the-Blank Quiz</title>
+    <link rel="stylesheet" href="assets/css/fill.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Fill-in-the-Blank Quiz</h1>
+
+        <!-- Question 1 -->
+        <div id="question-1" class="question active">
+            <h2>Soal: Isi bagian yang kosong dengan jawaban yang tepat.</h2>
+            <p>Kalimat: "Penulis wajib menggunakan _____ untuk menghindari plagiarisme."</p>
+            <input type="text" id="answer-1" placeholder="Isi jawaban">
+        </div>
+
+        <!-- Question 2 -->
+        <div id="question-2" class="question">
+            <h2>Soal: Lengkapi kalimat berikut.</h2>
+            <p>Kalimat: "Siswa harus mempersiapkan _____ sebelum ujian."</p>
+            <input type="text" id="answer-2" placeholder="Isi jawaban">
+        </div>
+
+        <!-- Question 3 -->
+        <div id="question-3" class="question">
+            <h2>Soal: Lengkapi kalimat berikut.</h2>
+            <p>Kalimat: "Seorang ilmuwan harus selalu mencari _____ untuk teorinya."</p>
+            <input type="text" id="answer-3" placeholder="Isi jawaban">
+        </div>
+
+        <!-- Question 4 -->
+        <div id="question-4" class="question">
+            <h2>Soal: Lengkapi kalimat berikut.</h2>
+            <p>Kalimat: "Buku ini merupakan _____ karya penulis terkenal."</p>
+            <input type="text" id="answer-4" placeholder="Isi jawaban">
+        </div>
+
+        <!-- Question 5 -->
+        <div id="question-5" class="question">
+            <h2>Soal: Lengkapi kalimat berikut.</h2>
+            <p>Kalimat: "Pelajar yang baik harus memiliki _____ yang tinggi."</p>
+            <input type="text" id="answer-5" placeholder="Isi jawaban">
+        </div>
+
+        <!-- Buttons -->
+        <button id="submit" disabled>Check Answer</button>
+        <button id="next" style="display:none">Next Question</button>
+        <button id="try-again" style="display:none">Try Again</button>
+
+        <!-- Progress Visualization -->
+        <div id="question-grid">
+            <button class="grid-btn" data-question="1">1</button>
+            <button class="grid-btn" data-question="2">2</button>
+            <button class="grid-btn" data-question="3">3</button>
+            <button class="grid-btn" data-question="4">4</button>
+            <button class="grid-btn" data-question="5">5</button>
+        </div>
+
+        <!-- Score and Feedback -->
+        <div id="feedback"></div>
+        <p id="score">Score: 0</p>
+    </div>
+
+    <script src="assets/js/fill.js"></script>
+</body>
+</html>

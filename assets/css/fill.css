@@ -1,0 +1,74 @@
+body {
+    font-family: Poppins, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+#quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    margin: 20px 0;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+#question-grid {
+    margin-top: 20px;
+}
+
+.grid-btn {
+    background-color: white;
+    border: 2px solid #ccc;
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.grid-btn.correct {
+    background-color: lightblue;
+}
+
+.grid-btn.wrong {
+    background-color: red;
+}
+
+.grid-btn.active {
+    background-color: blue;
+}
+
+#score {
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#feedback {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.question {
+    display: none;
+}
+
+.question.active {
+    display: block;
+}

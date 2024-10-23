@@ -1,13 +1,3 @@
-/*=============== LOGIN ===============*/
-document.getElementById("loginForm").addEventListener("submit", function(event){
-    event.preventDefault();
-    const email = document.getElementById("email").value;
-    if (email) {
-        window.location.href = "homepage.html"; // Redirect to homepage
-    } else {
-        alert("Please enter a valid email.");
-    }
-});
 
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
@@ -39,27 +29,45 @@ function removeActiveClass() {
     });
 }
 
-// Function to add 'active' class based on section visibility
+document.querySelectorAll('.nav__link').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default anchor behavior
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        const headerHeight = document.querySelector('.header').offsetHeight;
+
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        window.scrollTo({
+            top: targetSection.offsetTop - headerHeight, 
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Function to add 'active' class to the current section's link
 function setActiveSection() {
     const sections = document.querySelectorAll('section');
-    let currentSection = '';
-    
-    sections.forEach(function(section) {
+    const scrollPos = window.pageYOffset + window.innerHeight / 3; // Adjusting for better accuracy
+
+    sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 50) { // Adjust threshold for accuracy
-            currentSection = section.getAttribute('id');
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`a[href="#${sectionId}"]`);
+
+        // Add or remove 'active' class based on scroll position
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            navLink.classList.add('active');
+        } else {
+            navLink.classList.remove('active');
         }
     });
-
-    removeActiveClass();
-
-    // Add active class to the current section's link
-    if (currentSection) {
-        document.querySelector(`a[href="#${currentSection}"]`).classList.add('active');
-    }
 }
 
-// Event listener for scrolling
+// Run the setActiveSection function on scroll
 window.addEventListener('scroll', setActiveSection);
 
 function linkAction(){
@@ -68,6 +76,19 @@ function linkAction(){
     navMenu.classList.remove('show-menu')
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        window.scrollTo({
+            top: targetSection.offsetTop - 50, // Adjust to align with the header
+            behavior: 'smooth'
+        });
+    });
+});
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 function scrollHeader(){
@@ -125,17 +146,17 @@ const sr = ScrollReveal({
 })
 
 
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form from refreshing the page
+/*=============== LOGIN ===============*/
+document.getElementById("loginForm").addEventListener("submit", function(event){
+    event.preventDefault();  // Prevent the form from submitting the traditional way
     
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    // Basic validation for email and password
+    // Basic validation
     if (validateEmail(email) && password.length >= 8) {
-        // Redirect to homepage if email is valid and password is long enough
-        window.location.href = "index.html";
-    } else {
+        // Redirect to homepage if validation passes
+        window.location.href = "index.html";  
         alert("Please enter a valid email and a password with at least 8 characters.");
     }
 });
@@ -145,6 +166,20 @@ function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
 }
+
+/*=============== SHOW PASSWORD ===============*/
+document.querySelector('.toggle-password').addEventListener('click', function() {
+    const passwordField = document.getElementById('password');
+    const toggleButton = this;
+
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleButton.textContent = 'Hide';
+    } else {
+        passwordField.type = 'password';
+        toggleButton.textContent = 'Show';
+    }
+});
 
 sr.reveal(`.home__header, .section__title`,{delay: 600})
 sr.reveal(`.home__footer`,{delay: 700})

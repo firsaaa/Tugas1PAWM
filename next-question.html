@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Interaktif TTKI</title>
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Basic Layout and Styling */
+        .drag-drop-container {
+            text-align: center;
+            margin-top: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Heading and Title */
+        h2 {
+            color: #0861ba;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Drag Items Styling */
+        .drag-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .drag-container div {
+            background-color: #0861ba;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .drag-container div:hover {
+            background-color: #064a91;
+        }
+
+        /* Drop Zones */
+        .drop-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .drop-container div {
+            width: 220px;
+            height: 50px;
+            background-color: #f1f1f1;
+            border: 2px dashed #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Styling after item is dropped */
+        .dropped {
+            background-color: #d3e0ff;
+            border-color: #0861ba;
+            color: #0861ba;
+        }
+
+        /* Button styling */
+        .submit-btn, .retry-btn, .next-btn {
+            background-color: #0861ba;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover, .retry-btn:hover, .next-btn:hover {
+            background-color: #064a91;
+        }
+
+        /* Result feedback */
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="assets/img/logoitb.png" alt="Logo ITB">
+            </a>
+            <div class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#drag-drop" class="active">Drag and Drop</a></li>
+                    <li><a href="#multiple-choice">Multiple Choice</a></li>
+                    <li><a href="#fill-blank">Fill-in-the-Blank</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="drag-drop-container">
+        <h2>Latihan Interaktif TTKI</h2>
+        <p>Gunakan latihan drag-and-drop untuk membantu belajar Bahasa Indonesia dengan lebih interaktif.</p>
+        
+        <h3>Cocokkan Istilah dengan Definisinya yang Sesuai:</h3>
+
+        <!-- Drag Items (Acak) -->
+        <div class="drag-container" id="drag-items">
+            <div id="drag3" draggable="true" ondragstart="drag(event)">Paragraf Narasi</div>
+            <div id="drag4" draggable="true" ondragstart="drag(event)">Paragraf Deduktif</div>
+            <div id="drag1" draggable="true" ondragstart="drag(event)">Plagiarisme Diri</div>
+            <div id="drag2" draggable="true" ondragstart="drag(event)">Paragraf Deskripsi</div>
+        </div>
+
+        <!-- Drop Zones -->
+        <div class="drop-container">
+            <div id="drop1" ondrop="drop(event)" ondragover="allowDrop(event)">Penulis menggunakan kembali karyanya yang telah diterbitkan sebelumnya.</div>
+            <div id="drop2" ondrop="drop(event)" ondragover="allowDrop(event)">Paragraf yang menggambarkan suatu objek atau suasana.</div>
+            <div id="drop3" ondrop="drop(event)" ondragover="allowDrop(event)">Paragraf yang menceritakan peristiwa secara kronologis.</div>
+            <div id="drop4" ondrop="drop(event)" ondragover="allowDrop(event)">Paragraf yang dimulai dengan pernyataan umum, kemudian diikuti dengan penjelasan khusus.</div>
+        </div>
+
+        <!-- Submit Button and Result -->
+        <button class="submit-btn" onclick="checkAnswers()">Cek Jawaban</button>
+        <button class="retry-btn" id="retry-btn" style="display: none;" onclick="retry()">Coba Lagi</button>
+        <button class="next-btn" id="next-btn" style="display: none;" onclick="goToNextQuestion()">Soal Selanjutnya</button>
+        <p id="result"></p>
+
+        <!-- JavaScript Section -->
+        <script>
+            // Drag and Drop Functions
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                var draggedElement = document.getElementById(data);
+                
+                if (!ev.target.classList.contains('dropped')) {  // If the drop target hasn't been used yet
+                    ev.target.appendChild(draggedElement);
+                    ev.target.classList.add('dropped');
+                }
+            }
+
+            function checkAnswers() {
+                var correct = 0;
+                var drop1 = document.getElementById('drop1').querySelector('div') ? document.getElementById('drop1').querySelector('div').innerText.trim() : '';
+                var drop2 = document.getElementById('drop2').querySelector('div') ? document.getElementById('drop2').querySelector('div').innerText.trim() : '';
+                var drop3 = document.getElementById('drop3').querySelector('div') ? document.getElementById('drop3').querySelector('div').innerText.trim() : '';
+                var drop4 = document.getElementById('drop4').querySelector('div') ? document.getElementById('drop4').querySelector('div').innerText.trim() : '';
+
+                if (drop1 === 'Plagiarisme Diri') correct++;
+                if (drop2 === 'Paragraf Deskripsi') correct++;
+                if (drop3 === 'Paragraf Narasi') correct++;
+                if (drop4 === 'Paragraf Deduktif') correct++;
+
+                var resultMessage = document.getElementById('result');
+                var retryBtn = document.getElementById('retry-btn');
+                var nextBtn = document.getElementById('next-btn');
+                if (correct === 4) {
+                    resultMessage.innerHTML = "Jawaban Benar!";
+                    resultMessage.style.color = "green";
+                    nextBtn.style.display = "inline-block"; // Show the next question button
+                    retryBtn.style.display = "none"; // Hide retry button
+                } else {
+                    resultMessage.innerHTML = "Jawaban Salah. Coba lagi!";
+                    resultMessage.style.color = "red";
+                    retryBtn.style.display = "inline-block"; // Show retry button
+                    nextBtn.style.display = "none"; // Hide next button
+                }
+            }
+
+            // Reset Function to allow retry
+            function retry() {
+                var dropZones = document.querySelectorAll('.drop-container div');
+                dropZones.forEach(zone => {
+                    zone.classList.remove('dropped');
+                    if (zone.children.length > 0) {
+                        document.getElementById('drag-items').appendChild(zone.children[0]);
+                    }
+                });
+                document.getElementById('result').innerText = "";
+                document.getElementById('retry-btn').style.display = "none"; // Hide retry button after reset
+            }
+
+            // Redirect to the next question
+            function goToNextQuestion() {
+                window.location.href = "next-question.html"; // Replace with the actual next question URL
+            }
+        </script>
+    </main>
+</body>
+</html>

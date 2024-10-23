@@ -67,7 +67,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+/*Background, font, font-size*/
+body { 
   margin: 0 0 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
@@ -75,6 +76,7 @@ body {
   color: var(--text-color);
 }
 
+/*Heading*/
 h1, h2, h3 {
   color: var(--title-color);
 }
@@ -140,10 +142,15 @@ img {
 .header {
   width: 100%;
   height: 75px;
-  position: relative;
   background-image: url('../img/backgrounditb2.jpeg');
   background-size: cover;
   background-position: center;
+  background-color: var(--white-color);
+  padding: 5px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Make sure it stays on top of other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .header::before {
@@ -160,14 +167,6 @@ img {
   z-index: 1;
 }
 
-.header {
-  background-color: var(--white-color);
-  padding: 5px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100; /* Make sure it stays on top of other content */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-}
 /*=============== NAV ===============*/
 .nav {
   position: relative;
@@ -332,19 +331,19 @@ img {
 
   .course {
       text-align: center;
-      max-width: 400px; /* Sesuaikan dengan desain */
+      max-width: 400px; 
   }
 
   .course__image {
-      width: 100%; /* Lebar gambar penuh */
-      height: 300px; /* Atur tinggi gambar */
-      object-fit: cover; /* Menjaga proporsi gambar */
+      width: 100%; 
+      height: 300px; 
+      object-fit: cover; 
       border-radius: 8px;
       transition: transform 0.3s ease;
   }
 
   .course__image:hover {
-      transform: scale(1.05); /* Efek hover gambar */
+      transform: scale(1.05); 
   }
 
   .course__title {
@@ -366,7 +365,10 @@ img {
     margin-bottom: 20px;
   }
 
-/*=============== BUTTONS ===============*/
+
+
+
+/*=============== SIGN-IN BUTTONS ===============*/
 .button {
   display: inline-block;
   background-color: var(--white-color);

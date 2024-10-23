@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag-and-Drop Quiz</title>
+    <link rel="stylesheet" href="assets/css/drag-and-drop.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Drag-and-Drop Quiz</h1>
+
+        <!-- Question 1 -->
+        <div id="question-1" class="question active">
+            <h2>Match the plant parts to their needs</h2>
+            <div id="draggable-container-1" class="draggable-container">
+                <div class="draggable" draggable="true" data-answer="Roots">Roots</div>
+                <div class="draggable" draggable="true" data-answer="Leaves">Leaves</div>
+                <div class="draggable" draggable="true" data-answer="Water">Water</div>
+                <div class="draggable" draggable="true" data-answer="Sunlight">Sunlight</div>
+            </div>
+            <div id="drop-zone-container-1" class="dropzone-container">
+                <div class="dropzone" data-correct="Roots">Plant Part 1</div>
+                <div class="dropzone" data-correct="Leaves">Plant Part 2</div>
+                <div class="dropzone" data-correct="Water">Plant Need 1</div>
+                <div class="dropzone" data-correct="Sunlight">Plant Need 2</div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div id="question-2" class="question">
+            <h2>Match the following concepts to their definitions</h2>
+            <div id="draggable-container-2" class="draggable-container">
+                <div class="draggable" draggable="true" data-answer="Plagiarism">Plagiarism</div>
+                <div class="draggable" draggable="true" data-answer="Citation">Citation</div>
+                <div class="draggable" draggable="true" data-answer="Abstract">Abstract</div>
+                <div class="draggable" draggable="true" data-answer="Introduction">Introduction</div>
+            </div>
+            <div id="drop-zone-container-2" class="dropzone-container">
+                <div class="dropzone" data-correct="Plagiarism">Using others' work without credit</div>
+                <div class="dropzone" data-correct="Citation">Giving credit to a source</div>
+                <div class="dropzone" data-correct="Abstract">A brief summary of a research paper</div>
+                <div class="dropzone" data-correct="Introduction">The first section of a paper</div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div id="question-3" class="question">
+            <h2>Match the animals to their habitats</h2>
+            <div id="draggable-container-3" class="draggable-container">
+                <div class="draggable" draggable="true" data-answer="Lion">Lion</div>
+                <div class="draggable" draggable="true" data-answer="Penguin">Penguin</div>
+                <div class="draggable" draggable="true" data-answer="Camel">Camel</div>
+                <div class="draggable" draggable="true" data-answer="Frog">Frog</div>
+            </div>
+            <div id="drop-zone-container-3" class="dropzone-container">
+                <div class="dropzone" data-correct="Lion">Savanna</div>
+                <div class="dropzone" data-correct="Penguin">Antarctica</div>
+                <div class="dropzone" data-correct="Camel">Desert</div>
+                <div class="dropzone" data-correct="Frog">Pond</div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div id="question-4" class="question">
+            <h2>Match the following programming languages to their descriptions</h2>
+            <div id="draggable-container-4" class="draggable-container">
+                <div class="draggable" draggable="true" data-answer="Python">Python</div>
+                <div class="draggable" draggable="true" data-answer="JavaScript">JavaScript</div>
+                <div class="draggable" draggable="true" data-answer="C++">C++</div>
+                <div class="draggable" draggable="true" data-answer="HTML">HTML</div>
+            </div>
+            <div id="drop-zone-container-4" class="dropzone-container">
+                <div class="dropzone" data-correct="Python">A versatile language for many tasks, known for readability</div>
+                <div class="dropzone" data-correct="JavaScript">A language used for web development</div>
+                <div class="dropzone" data-correct="C++">A high-performance language used in system programming</div>
+                <div class="dropzone" data-correct="HTML">A markup language used for creating web pages</div>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div id="question-5" class="question">
+            <h2>Match the following mathematical terms with their definitions</h2>
+            <div id="draggable-container-5" class="draggable-container">
+                <div class="draggable" draggable="true" data-answer="Matrix">Matrix</div>
+                <div class="draggable" draggable="true" data-answer="Derivative">Derivative</div>
+                <div class="draggable" draggable="true" data-answer="Integral">Integral</div>
+                <div class="draggable" draggable="true" data-answer="Vector">Vector</div>
+            </div>
+            <div id="drop-zone-container-5" class="dropzone-container">
+                <div class="dropzone" data-correct="Matrix">A rectangular array of numbers or variables</div>
+                <div class="dropzone" data-correct="Derivative">A measure of how a function changes as its input changes</div>
+                <div class="dropzone" data-correct="Integral">A concept that represents accumulation of quantities</div>
+                <div class="dropzone" data-correct="Vector">An object that has both direction and magnitude</div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <button id="submit" disabled>Check Answer</button>
+        <button id="try-again" style="display:none">Try Again</button>
+        <button id="next-question" style="display:none">Next Question</button>
+
+        <!-- Feedback -->
+        <p id="feedback"></p>
+
+        <!-- Score and Total Questions -->
+        <p id="score">Score: 0</p>
+        <p>Total Questions: 5</p>
+
+        <!-- Question Number Navigation -->
+        <div id="question-grid">
+            <button class="grid-btn" data-question="1">1</button>
+            <button class="grid-btn" data-question="2">2</button>
+            <button class="grid-btn" data-question="3">3</button>
+            <button class="grid-btn" data-question="4">4</button>
+            <button class="grid-btn" data-question="5">5</button>
+        </div>
+    </div>
+
+    <script src="assets/js/drag-and-drop.js"></script>
+</body>
+</html>
