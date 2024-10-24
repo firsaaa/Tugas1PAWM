@@ -1,18 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag-and-Drop Quiz</title>
-    <link rel="stylesheet" href="assets/css/drag-and-drop.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--================ FAVICON ================-->
+  <link rel="shortcut icon" href="assets/img/logoitb.png" type="image/x-icon">
+
+  <!--================ ICON ================-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+
+  <!--================ CSS ================-->
+  <link rel="stylesheet" href="assets/css/drag-and-drop.css">
+
+  <title>Virtual Lab Institut Teknologi Bandung</title>
+
 </head>
+<body>
+
+  <!--================ HEADER ================-->
+<header class="header" id="header">
+    <nav class="nav container">
+        <a id="nav-logo" class="nav__logo">BERBAHASA</a>
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html" class="homepage"><img src="assets/img/Home.png" alt="Home"></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Sidebar -->
+<div id="sideToolbar" class="side-toolbar">
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="login.html">LogOut</a>
+</div>
+
 <body>
     <div id="quiz-container">
         <h1>Drag-and-Drop Quiz</h1>
 
         <!-- Question 1 -->
         <div id="question-1" class="question active">
-            <h2>Match the plant parts to their needs</h2>
+            <h2>Pasangkan dengan istilah yang sesuai</h2>
             <div id="draggable-container-1" class="draggable-container">
                 <div class="draggable" draggable="true" data-answer="Plagiarisme">Plagiarisme</div>
                 <div class="draggable" draggable="true" data-answer="Deduktif">Deduktif</div>
@@ -29,7 +61,7 @@
 
         <!-- Question 2 -->
         <div id="question-2" class="question">
-            <h2>Match the following concepts to their definitions</h2>
+            <h2>Pasangkan dengan istilah yang sesuai</h2>
             <div id="draggable-container-2" class="draggable-container">
                 <div class="draggable" draggable="true" data-answer="Pikiran utama">Pikiran utama</div>
                 <div class="draggable" draggable="true" data-answer="Pikiran penjelas">Pikiran penjelas</div>
@@ -46,7 +78,7 @@
 
         <!-- Question 3 -->
         <div id="question-3" class="question">
-            <h2>Match the animals to their habitats</h2>
+            <h2>Pasangkan dengan istilah yang sesuai</h2>
             <div id="draggable-container-3" class="draggable-container">
                 <div class="draggable" draggable="true" data-answer="Self-plagiarism">Self-plagiarism</div>
                 <div class="draggable" draggable="true" data-answer="Plagiarisme kepengarangan">Plagiarisme kepengarangan</div>
@@ -61,7 +93,7 @@
 
         <!-- Question 4 -->
         <div id="question-4" class="question">
-            <h2>Match the following programming languages to their descriptions</h2>
+            <h2>Pasangkan dengan istilah yang sesuai</h2>
             <div id="draggable-container-4" class="draggable-container">
                 <div class="draggable" draggable="true" data-answer="Deduktif">Deduktif</div>
                 <div class="draggable" draggable="true" data-answer="Induktif">Induktif</div>
@@ -76,7 +108,7 @@
 
         <!-- Question 5 -->
         <div id="question-5" class="question">
-            <h2>Match the following mathematical terms with their definitions</h2>
+            <h2>Pasangkan dengan istilah yang sesuai</h2>
             <div id="draggable-container-5" class="draggable-container">
                 <div class="draggable" draggable="true" data-answer="Kata pengantar">Kata pengantar</div>
                 <div class="draggable" draggable="true" data-answer="Pendahuluan">Pendahuluan</div>
@@ -110,7 +142,15 @@
             <button class="grid-btn" data-question="5">5</button>
         </div>
     </div>
-
     <script src="assets/js/drag-and-drop.js"></script>
+    <!--=============== FOOTER ===============-->
+    <footer class="footer section">
+        <p class="footer__copy">
+        <a target="_blank" class="footer__copy-link">&#169; BERBAHASA. Institut Teknologi Bandung</a>
+        </p>
+    </footer>
 </body>
 </html>
+
+
+

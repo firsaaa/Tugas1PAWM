@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill-in-the-Blank Quiz</title>
+    <link rel="shortcut icon" href="assets/img/logoitb.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/css/fill.css">
+</head>
+
+<!--================ HEADER ================-->
+<header class="header" id="header">
+    <nav class="nav container">
+        <a id="nav-logo" class="nav__logo">BERBAHASA</a>
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html" class="homepage"><img src="assets/img/Home.png" alt="Home"></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Sidebar -->
+<div id="sideToolbar" class="side-toolbar">
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="login.html">LogOut</a>
+</div>
+
+<body>
+    <div id="quiz-container">
+        <h1>Fill-in-the-Blank Quiz</h1>
+
+        <!-- Question 1 -->
+        <div id="question-1" class="question active">
+            <h2>Question: Complete the sentence.</h2>
+            <p>"The research paper must include a proper ______________ to avoid plagiarism."</p>
+            <input type="text" id="answer-1" placeholder="Enter your answer">
+        </div>
+
+        <!-- Question 2 -->
+        <div id="question-2" class="question">
+            <h2>Question: Fill in the blank.</h2>
+            <p>"She _______________ (study) for two hours when her friend arrived."</p>
+            <input type="text" id="answer-2" placeholder="Enter your answer">
+        </div>
+
+        <!-- Question 3 -->
+        <div id="question-3" class="question">
+            <h2>Question: Complete the sentence.</h2>
+            <p>"A _______________ (noun) is a person, place, or thing."</p>
+            <input type="text" id="answer-3" placeholder="Enter your answer">
+        </div>
+
+        <!-- Question 4 -->
+        <div id="question-4" class="question">
+            <h2>Question: Fill in the blank.</h2>
+            <p>"He _______________ (complete) his assignment before the deadline."</p>
+            <input type="text" id="answer-4" placeholder="Enter your answer">
+        </div>
+
+        <!-- Question 5 -->
+        <div id="question-5" class="question">
+            <h2>Question: Fill in the blank.</h2>
+            <p>"They _______________ (be) excited about their trip next week."</p>
+            <input type="text" id="answer-5" placeholder="Enter your answer">
+        </div>
+
+
+        <!-- Buttons -->
+        <button id="submit" disabled>Check Answer</button>
+        <button id="next" style="display:none">Next Question</button>
+        <button id="try-again" style="display:none">Try Again</button>
+
+        <!-- Progress Visualization -->
+        <div id="question-grid">
+            <button class="grid-btn" data-question="1">1</button>
+            <button class="grid-btn" data-question="2">2</button>
+            <button class="grid-btn" data-question="3">3</button>
+            <button class="grid-btn" data-question="4">4</button>
+            <button class="grid-btn" data-question="5">5</button>
+        </div>
+
+        <!-- Score and Feedback -->
+        <div id="feedback"></div>
+        <div class="score-section" style="display: none;">
+        <h2>Quiz completed!</h2>
+        <p id="score">Your Score: 0</p> 
+        <a href="indo.html" class="homepage-button">Kembali ke Homepage</a>
+        </div>
+
+    </div>
+
+    <script src="assets/js/fill2.js"></script>
+
+    <!--=============== FOOTER ===============-->
+    <footer class="footer section">
+        <p class="footer__copy">
+        <a target="_blank" class="footer__copy-link">&#169; BERBAHASA. Institut Teknologi Bandung</a>
+        </p>
+    </footer>
+
+</body>
+</html>

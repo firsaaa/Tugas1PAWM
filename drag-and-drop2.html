@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--================ FAVICON ================-->
+  <link rel="shortcut icon" href="assets/img/logoitb.png" type="image/x-icon">
+
+  <!--================ ICON ================-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+
+  <!--================ CSS ================-->
+  <link rel="stylesheet" href="assets/css/drag-and-drop.css">
+
+  <title>Virtual Lab Institut Teknologi Bandung</title>
+
+</head>
+<body>
+
+  <!--================ HEADER ================-->
+<header class="header" id="header">
+    <nav class="nav container">
+        <a id="nav-logo" class="nav__logo">BERBAHASA</a>
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html" class="homepage"><img src="assets/img/Home.png" alt="Home"></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Sidebar -->
+<div id="sideToolbar" class="side-toolbar">
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="login.html">LogOut</a>
+</div>
+
+<body>
+    <div id="quiz-container">
+        <h1>Drag-and-Drop Quiz</h1>
+
+        <!-- Question 1 -->
+        <div id="question-1" class="question active">
+            <h2>Match the terms to their definitions</h2>
+            <div id="draggable-container-1" class="draggable-container">
+                <div class="draggable" draggable="true" data-answer="Plagiarism">Plagiarism</div>
+                <div class="draggable" draggable="true" data-answer="Citation">Citation</div>
+                <div class="draggable" draggable="true" data-answer="Thesis">Thesis</div>
+                <div class="draggable" draggable="true" data-answer="Paraphrase">Paraphrase</div>
+            </div>
+            <div id="drop-zone-container-1" class="dropzone-container">
+                <div class="dropzone" data-correct="Citation">A reference to a book, paper, or author, especially in academic work.</div>
+                <div class="dropzone" data-correct="Plagiarism">The practice of taking someone else's work or ideas and passing them off as one's own.</div>
+                <div class="dropzone" data-correct="Thesis">A statement or theory put forward to be maintained or proved.</div>
+                <div class="dropzone" data-correct="Paraphrase">A restatement of a text or passage giving the meaning in another form.</div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div id="question-2" class="question">
+            <h2>Match the words to their synonyms</h2>
+            <div id="draggable-container-2" class="draggable-container">
+                <div class="draggable" draggable="true" data-answer="Negligible">Negligible</div>
+                <div class="draggable" draggable="true" data-answer="Significant">Significant</div>
+                <div class="draggable" draggable="true" data-answer="Demonstrate">Demonstrate</div>
+                <div class="draggable" draggable="true" data-answer="Emphasize">Emphasize</div>
+            </div>
+            <div id="drop-zone-container-2" class="dropzone-container">
+                <div class="dropzone" data-correct="Negligible">So small or unimportant as to be not worth considering</div>
+                <div class="dropzone" data-correct="Significant">Important or noteworthy</div>
+                <div class="dropzone" data-correct="Demonstrate">Show or prove</div>
+                <div class="dropzone" data-correct="Emphasize">Stress or highlight</div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div id="question-3" class="question">
+            <h2>Match the sentence structures to their descriptions</h2>
+            <div id="draggable-container-3" class="draggable-container">
+                <div class="draggable" draggable="true" data-answer="Simple Sentence">Simple Sentence</div>
+                <div class="draggable" draggable="true" data-answer="Compound Sentence">Compound Sentence</div>
+                <div class="draggable" draggable="true" data-answer="Complex Sentence">Complex Sentence</div>
+                <div class="draggable" draggable="true" data-answer="Compound-Complex Sentence">Compound-Complex Sentence</div>
+            </div>
+            <div id="drop-zone-container-3" class="dropzone-container">
+                <div class="dropzone" data-correct="Simple Sentence">A sentence with one independent clause.</div>
+                <div class="dropzone" data-correct="Compound Sentence">A sentence with two or more independent clauses.</div>
+                <div class="dropzone" data-correct="Complex Sentence">A sentence with one independent and one dependent clause.</div>
+                <div class="dropzone" data-correct="Compound-Complex Sentence">A sentence with at least two independent clauses and one dependent clause.</div>
+            </div>
+        </div>
+        
+
+        <!-- Question 4 -->
+        <div id="question-4" class="question">
+            <h2>Match the tenses to their examples</h2>
+            <div id="draggable-container-4" class="draggable-container">
+                <div class="draggable" draggable="true" data-answer="Present Perfect">Present Perfect</div>
+                <div class="draggable" draggable="true" data-answer="Past Simple">Past Simple</div>
+                <div class="draggable" draggable="true" data-answer="Present Continuous">Present Continuous</div>
+                <div class="draggable" draggable="true" data-answer="Past Perfect">Past Perfect</div>
+            </div>
+            <div id="drop-zone-container-4" class="dropzone-container">
+                <div class="dropzone" data-correct="Present Perfect">I have lived here since 2005.</div>
+                <div class="dropzone" data-correct="Past Simple">They are playing football right now.</div>
+                <div class="dropzone" data-correct="Present Continuous">She was reading when the phone rang.</div>
+                <div class="dropzone" data-correct="Past Perfect">He had already eaten before I arrived.</div>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div id="question-5" class="question">
+            <h2>Match the words to their parts of speech</h2>
+            <div id="draggable-container-5" class="draggable-container">
+                <div class="draggable" draggable="true" data-answer="Beautiful">Beautiful</div>
+                <div class="draggable" draggable="true" data-answer="Slowly">Slowly</div>
+                <div class="draggable" draggable="true" data-answer="Joyful">Joyful</div>
+                <div class="draggable" draggable="true" data-answer="Education">Education</div>
+            </div>
+            <div id="drop-zone-container-5" class="dropzone-container">
+                <div class="dropzone" data-correct="Beautiful">Noun</div>
+                <div class="dropzone" data-correct="Slowly">Adjective</div>
+                <div class="dropzone" data-correct="Joyful">Adverb</div>
+                <div class="dropzone" data-correct="Education">Adjective</div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <button id="submit" disabled>Check Answer</button>
+        <button id="try-again" style="display:none">Try Again</button>
+        <button id="next-question" style="display:none">Next Question</button>
+
+        <!-- Feedback -->
+        <p id="feedback"></p>
+
+        <!-- Score and Total Questions -->
+        <p id="score">Score: 0</p>
+        <p>Total Questions: 5</p>
+
+        <!-- Question Number Navigation -->
+        <div id="question-grid">
+            <button class="grid-btn" data-question="1">1</button>
+            <button class="grid-btn" data-question="2">2</button>
+            <button class="grid-btn" data-question="3">3</button>
+            <button class="grid-btn" data-question="4">4</button>
+            <button class="grid-btn" data-question="5">5</button>
+        </div>
+    </div>
+    <script src="assets/js/drag-and-drop.js"></script>
+    <!--=============== FOOTER ===============-->
+    <footer class="footer section">
+        <p class="footer__copy">
+        <a target="_blank" class="footer__copy-link">&#169; BERBAHASA. Institut Teknologi Bandung</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fill-in-the-Blank Quiz</title>
+    <link rel="shortcut icon" href="assets/img/logoitb.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="assets/css/fill.css">
 </head>
+
+<!--================ HEADER ================-->
+<header class="header" id="header">
+    <nav class="nav container">
+        <a id="nav-logo" class="nav__logo">BERBAHASA</a>
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html" class="homepage"><img src="assets/img/Home.png" alt="Home"></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Sidebar -->
+<div id="sideToolbar" class="side-toolbar">
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="login.html">LogOut</a>
+</div>
+
 <body>
     <div id="quiz-container">
         <h1>Fill-in-the-Blank Quiz</h1>
@@ -61,9 +83,22 @@
 
         <!-- Score and Feedback -->
         <div id="feedback"></div>
-        <p id="score">Score: 0</p>
+        <div class="score-section" style="display: none;">
+        <h2>Quiz completed!</h2>
+        <p id="score">Your Score: 0</p> 
+        <a href="indo.html" class="homepage-button">Kembali ke Homepage</a>
+        </div>
+
     </div>
 
     <script src="assets/js/fill.js"></script>
+
+    <!--=============== FOOTER ===============-->
+    <footer class="footer section">
+        <p class="footer__copy">
+        <a target="_blank" class="footer__copy-link">&#169; BERBAHASA. Institut Teknologi Bandung</a>
+        </p>
+    </footer>
+
 </body>
 </html>

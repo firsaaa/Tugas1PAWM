@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const feedback = document.getElementById('feedback');
     const scoreDisplay = document.getElementById('score');
     const gridButtons = document.querySelectorAll('.grid-btn');
-
+    let filledDropzones = {};  // Keeps track of what has been placed in each drop zone
+    
     // Function to update score
     function updateScore() {
         scoreDisplay.textContent = `Score: ${score}`;
@@ -33,11 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Ensure answersPlaced is empty for each question
         answersPlaced = {};
+        filledDropzones = {};  // Reset dropzones for the new question
 
         dropzones.forEach(dropzone => {
-            // Store the original text for resetting later
             dropzone.dataset.original = dropzone.textContent;
-
             dropzone.addEventListener('dragover', (e) => e.preventDefault());
 
             dropzone.addEventListener('drop', (e) => {
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 const draggedText = e.dataTransfer.getData('text');
                 const previousAnswer = e.target.textContent;
 
-                // Reset the previously filled dropzone
-                if (previousAnswer !== dropzone.dataset.correct) {
+                // Reset the previously filled dropzone and move the item back to the draggable list
+                if (previousAnswer !== dropzone.dataset.original && previousAnswer in filledDropzones) {
                     draggables.forEach(draggable => {
                         if (draggable.textContent === previousAnswer) {
                             draggable.style.display = 'inline-block';
@@ -54,10 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 }
 
-                // Set the new text into the dropzone
+                // Place the new dragged item into the dropzone
                 e.target.textContent = draggedText;
-                e.target.style.backgroundColor = 'lightblue'; // Change color when dropped
+                e.target.style.backgroundColor = 'lightblue';
                 answersPlaced[e.target.dataset.correct] = draggedText;
+                filledDropzones[draggedText] = true;
 
                 // Hide the draggable item that was dropped
                 draggables.forEach(draggable => {
@@ -68,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Enable submit button when all dropzones are filled
                 const filled = Object.keys(answersPlaced).length === dropzones.length;
-                console.log(`Filled: ${filled}, Question: ${questionNum}`);
                 submitButton.disabled = !filled;
             });
         });
@@ -131,17 +131,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const draggables = document.querySelectorAll(`#draggable-container-${currentQuestion} .draggable`);
 
         dropzones.forEach(dropzone => {
-            // Reset the dropzone text to its original state
             dropzone.textContent = dropzone.dataset.original;
             dropzone.classList.remove('wrong', 'correct');
-            dropzone.style.backgroundColor = ''; // Remove background color on reset
+            dropzone.style.backgroundColor = '';
         });
 
         draggables.forEach(draggable => {
             draggable.style.display = 'inline-block';
         });
 
-        answersPlaced = {}; // Clear placed answers
+        answersPlaced = {};
+        filledDropzones = {};  // Reset dropzones for the question
     });
 
     // Move to the next question
@@ -156,12 +156,10 @@ document.addEventListener("DOMContentLoaded", function () {
             submitButton.disabled = true;
             setupDragAndDrop(currentQuestion);
         } else {
-            feedback.textContent = `Quiz completed! Final Score: ${score}`;
-            nextButton.style.display = 'none';
-            submitButton.style.display = 'none';
+            showFinalScore();  // Only show final score after the last question
         }
     });
-
+    
     // Handle grid button navigation for questions
     gridButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -171,7 +169,37 @@ document.addEventListener("DOMContentLoaded", function () {
             feedback.textContent = '';
             submitButton.style.display = 'inline-block';
             submitButton.disabled = true;
-            setupDragAndDrop(currentQuestion); // Reinitialize drag-and-drop for the selected question
+            setupDragAndDrop(currentQuestion);
         });
     });
 });
+
+const sideToolbar = document.getElementById('sideToolbar');
+const navLogo = document.getElementById('nav-logo');
+
+// Add click event to "BERBAHASA" to toggle the sidebar
+navLogo.addEventListener('click', function() {
+  if (sideToolbar.style.width === "250px") {
+    sideToolbar.style.width = "0";  // Close sidebar
+  } else {
+    sideToolbar.style.width = "250px";  // Open sidebar
+  }
+});
+
+function showFinalScore() {
+    const correctAnswers = score / 10; // Assuming 10 points per correct answer
+    document.getElementById('correct-answers').textContent = correctAnswers;
+    document.getElementById('total-questions').textContent = totalQuestions;
+    
+    // Show the final score section
+    document.querySelector('.score-section').style.display = 'flex';
+
+    // Change "Next Question" button to "Back to Homepage"
+    nextButton.style.display = 'none'; // Hide the "Next Question" button
+    const backButton = document.getElementById('back-home');
+    backButton.style.display = 'inline-block';  // Show the "Back to Homepage" button
+    backButton.addEventListener('click', function() {
+        window.location.href = "homepage.html";  // Redirect to homepage
+    });
+}
+

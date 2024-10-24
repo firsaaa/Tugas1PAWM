@@ -1,53 +1,53 @@
 const questions = [
     { 
-        question: "Dalam membuat karya ilmiah, komponen utama yang perlu diperhatikan dalam daftar pustaka adalah", 
-        answers: ["Pengarang, tahun, judul, penerbit", "Pengarang, tempat terbit, halaman", "Judul, penerbit, tempat terbit", "Tahun, tempat terbit, halaman"], 
-        correct: 0 
+        question: "What is the correct form of the verb in this sentence: 'By the time I arrived, they ____ dinner.'", 
+        answers: ["A) ate", "B) were eating", "C) had eaten", "D) have eaten"], 
+        correct: 2  // C) had eaten
     },
     { 
-        question: "Salah satu unsur yang tidak wajib ada dalam karya ilmiah adalah", 
-        answers: ["Daftar pustaka", "Indeks", "Daftar tabel", "Prakata"], 
-        correct: 1 
+        question: "Which of these is NOT a coordinating conjunction?", 
+        answers: ["A) But", "B) And", "C) Or", "D) Although"], 
+        correct: 3  // D) Although
     },
     { 
-        question: "Ciri topik karya tulis yang baik di antaranya", 
-        answers: ["Problematik, aktual, terbatas", "Lugas, mendalam, tidak terbatas", "Objektif, umum, tidak problematik", "Faktual, sangat luas, tidak terbatas"], 
-        correct: 0 
+        question: "Choose the correct sentence.", 
+        answers: ["A) He are my brother.", "B) She am a doctor.", "C) We is going to the park.", "D) They are playing football."], 
+        correct: 3  // D) They are playing football
     },
     { 
-        question: "Jenis plagiarisme yang terjadi ketika seseorang mengutip karya orang lain tanpa menyebutkan sumbernya disebut", 
-        answers: ["Self plagiarism", "Plagiarisme kepengarangan", "Plagiarisme kalimat", "Plagiarisme sebagian"], 
-        correct: 2 
+        question: "Which of these is a synonym for 'perceive'?", 
+        answers: ["A) Ignore", "B) Understand", "C) Disagree", "D) Control"], 
+        correct: 1  // B) Understand
     },
     { 
-        question: "Jenis paragraf yang berisi penggambaran secara detail mengenai objek atau suasana disebut", 
-        answers: ["Paragraf narasi", "Paragraf deduktif", "Paragraf deskripsi", "Paragraf induktif"], 
-        correct: 2 
+        question: "What is the passive form of this sentence: 'The chef cooks the meal.'", 
+        answers: ["A) The meal cooked by the chef.", "B) The meal was cooked by the chef.", "C) The meal is cooked by the chef.", "D) The chef is cooking the meal."], 
+        correct: 2  // C) The meal is cooked by the chef
     },
     { 
-        question: "Ciri-ciri karangan ilmiah antara lain adalah", 
-        answers: ["Lugas dan subjektif", "Informatif dan berlebihan", "Objektif dan logis", "Subjektif dan analitis"], 
-        correct: 2 
+        question: "Which of the following sentences is grammatically correct?", 
+        answers: ["A) I don’t can swim.", "B) She can’t sings.", "C) We can't go.", "D) He doesn't has a car."], 
+        correct: 2  // C) We can't go
     },
     { 
-        question: "Dalam membuat karya ilmiah, komponen utama yang perlu diperhatikan dalam daftar pustaka adalah", 
-        answers: ["Pengarang, tahun, judul, penerbit", "Pengarang, tempat terbit, halaman", "Judul, penerbit, tempat terbit", "Tahun, tempat terbit, halaman"], 
-        correct: 0 
+        question: "Which sentence is in the future perfect tense?", 
+        answers: ["A) I will be running tomorrow.", "B) I had finished my homework.", "C) I will have completed the project by tomorrow.", "D) I am completing my task."], 
+        correct: 2  // C) I will have completed the project by tomorrow
     },
     { 
-        question: "Salah satu unsur yang tidak wajib ada dalam karya ilmiah adalah", 
-        answers: ["Daftar pustaka", "Indeks", "Daftar tabel", "Prakata"], 
-        correct: 1 
+        question: "What is the correct word to complete this sentence: 'She was ____ tired to continue.'", 
+        answers: ["A) so", "B) too", "C) very", "D) such"], 
+        correct: 1  // B) too
     },
     { 
-        question: "Ciri topik karya tulis yang baik di antaranya", 
-        answers: ["Problematik, aktual, terbatas", "Lugas, mendalam, tidak terbatas", "Objektif, umum, tidak problematik", "Faktual, sangat luas, tidak terbatas"], 
-        correct: 0 
+        question: "Which sentence uses the subjunctive mood?", 
+        answers: ["A) If I were you, I would study more.", "B) I was happy yesterday.", "C) She will attend the meeting.", "D) They were playing soccer."], 
+        correct: 0  // A) If I were you, I would study more
     },
     { 
-        question: "Jenis plagiarisme yang terjadi ketika seseorang mengutip karya orang lain tanpa menyebutkan sumbernya disebut", 
-        answers: ["Self plagiarism", "Plagiarisme kepengarangan", "Plagiarisme kalimat", "Plagiarisme sebagian"], 
-        correct: 2
+        question: "Which of the following sentences contains a gerund?", 
+        answers: ["A) Running is my favorite activity.", "B) She runs fast.", "C) They ran to the store.", "D) He is run."], 
+        correct: 0  // A) Running is my favorite activity
     }
 ];
 
