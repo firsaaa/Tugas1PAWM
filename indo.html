@@ -12,220 +12,68 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
 
   <!--================ CSS ================-->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/indo.css">
 
   <title>Virtual Lab Institut Teknologi Bandung</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #FFFFFF;
-      color: #000;
-    }
-
-    /* Smooth Scroll */
-    .scroll-container {
-      scroll-snap-type: y mandatory;
-      height: 100vh;
-      overflow-y: scroll;
-    }
-
-    .scroll-section {
-      scroll-snap-align: start;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 50px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    /* Trigger transition */
-    .scroll-section.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* HEADER (aligned with homepage styling) */
-    .header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #0861ba; /* Change to match homepage */
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      padding: 15px 50px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease; /* Smooth transition */
-    }
-
-    .header ul {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
-
-    .header a {
-      color: #FFFFFF; /* Adjusted to white for homepage consistency */
-      text-decoration: none;
-      font-size: 1.2rem;
-      padding: 10px;
-    }
-
-    .header a:hover {
-      color: #bbdefb; /* Light hover effect */
-      transition: 0.3s;
-    }
-
-    .header a.active {
-      font-weight: bold;
-      color: #004d99;
-    }
-
-    /* Main Section */
-    main {
-      margin-top: 100px; /* Offset for the sticky header */
-    }
-
-    /* Overview Section */
-    #overview {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #F9F9F9;
-    }
-
-    #overview .overview-content {
-      text-align: center;
-    }
-
-    #overview h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    #overview p {
-      font-size: 1.5rem;
-      margin-bottom: 40px;
-    }
-
-    /* Section for Buttons */
-    .section {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #section-drag {
-      background-color: #e3f2fd;
-    }
-
-    #section-multiple-choice {
-      background-color: #bbdefb;
-    }
-
-    #section-fill {
-      background-color: #90caf9;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    button {
-      padding: 15px 30px;
-      background-color: #0861ba;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      margin-top: 20px;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #004d99;
-    }
-
-    /* Footer */
-    footer {
-      height: 100px;
-      background-color: #333;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-  </style>
 </head>
-
 <body>
 
   <!--================ HEADER ================-->
-  <header class="header">
-    <a href="#" class="nav__logo">
-      <img src="assets/img/logoitb.png" alt="ITB Logo" width="50">
-    </a>
-    <ul>
-      <li><a href="#overview" class="active">Overview</a></li>
-      <li><a href="#section-drag">Drag-and-Drop</a></li>
-      <li><a href="#section-multiple-choice">Multiple Choice</a></li>
-      <li><a href="#section-fill">Fill-in-the-Blank</a></li>
-    </ul>
-  </header>
+  <header class="header" id="header">
+    <nav class="nav container">
+        <a id="nav-logo" class="nav__logo">BERBAHASA</a>
+        <div class="navbar">
+            <ul>
+                <li><a href="#overview" class="nav__link">Overview</a></li>
+                <li><a href="#section-drag" class="nav__link">Drag-and-Drop</a></li>
+                <li><a href="#section-multiple-choice" class="nav__link">Multiple Choice</a></li>
+                <li><a href="#section-fill" class="nav__link">Fill-in-the-Blank</a></li>
+                <li><a href="index.html" class="homepage"><img src="assets/img/Home.png" alt="Home"></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Sidebar -->
+<div id="sideToolbar" class="side-toolbar">
+    <a href="index.html">Home</a>
+    <a href="#profile">Profile</a>
+    <a href="#logout">LogOut</a>
+</div>
 
   <!--================ MAIN CONTENT ================-->
   <main>
     <!-- Overview Section -->
     <section id="overview" class="scroll-section">
       <div class="overview-content">
-        <h1>Bahasa Indonesia Learning</h1>
+        <img src="assets/img/indonesia3.png" alt="Descriptive Alt Text" style="width:300px; height:auto; margin-bottom:20px;">
+        <h1>Bahasa Indonesia</h1>
         <p>Pilih jenis latihan yang ingin Anda coba.</p>
       </div>
     </section>
 
     <!-- Section Drag-and-Drop -->
     <section id="section-drag" class="scroll-section">
+      <img src="assets/img/dad2.png" alt="Descriptive Alt Text" style="width:auto; height:auto; margin-bottom:20px;">
       <h2>Latihan Drag-and-Drop</h2>
       <button onclick="location.href='drag-and-drop.html'">Mulai Latihan</button>
     </section>
 
     <!-- Section Multiple Choice -->
     <section id="section-multiple-choice" class="scroll-section">
+      <img src="assets/img/mc5.png" alt="Descriptive Alt Text" style="width:auto; height:auto; margin-bottom:20px;">
       <h2>Latihan Multiple Choice</h2>
       <button onclick="location.href='multiple-choice.html'">Mulai Latihan</button>
     </section>
 
     <!-- Section Fill-in-the-Blank -->
     <section id="section-fill" class="scroll-section">
+      <img src="assets/img/fb.png" alt="Descriptive Alt Text" style="width:auto; height:auto; margin-bottom:20px;">
       <h2>Latihan Fill-in-the-Blank</h2>
       <button onclick="location.href='fill-in-blank.html'">Mulai Latihan</button>
     </section>
   </main>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2024 Virtual Lab ITB
-  </footer>
 
   <script>
     /* Add scroll-triggered transitions */
@@ -240,6 +88,23 @@
     });
   </script>
 
-</body>
+<!--=============== FOOTER ===============-->
+<footer class="footer section">
+  <p class="footer__copy">
+    <a target="_blank" class="footer__copy-link">&#169; BERBAHASA. Institut Teknologi Bandung</a>
+  </p>
+  </footer>
+  
+  <!--=============== SCROLL UP ===============-->
+  <a href="#" class="scrollup" id="scroll-up">
+    <i class="ri-arrow-up-s-line scrollup__icon"></i>
+  </a>
+    
+    <!--=============== SCROLL REVEAL ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/script.js"></script>
 
+</body>
 </html>
