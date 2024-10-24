@@ -135,3 +135,11 @@ navLogo.addEventListener('click', function() {
     sideToolbar.style.width = "250px";  // Open sidebar
   }
 });
+
+
+  
+
+
+
+  
+  
