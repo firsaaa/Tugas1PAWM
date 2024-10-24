@@ -181,12 +181,26 @@ document.querySelector('.toggle-password').addEventListener('click', function() 
     }
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.slide-in'); // Target all elements with slide-in class
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                console.log("Element in view:", entry.target); // Check if element is in view
+                entry.target.classList.add('slide-in-visible'); // Add visibility class when element is in view
+                observer.unobserve(entry.target); // Stop observing after it's visible
+            }
+        });
+    });
+
+    elements.forEach(el => observer.observe(el)); // Observe each element
+});
+
+
 sr.reveal(`.home__header, .section__title`,{delay: 600})
 sr.reveal(`.home__footer`,{delay: 700})
 sr.reveal(`.home__img`,{delay: 900, origin: 'top'})
 
-sr.reveal(`.sponsor__img, .products__card, .footer__logo, .footer__content, .footer__copy`,{origin: 'top', interval: 100})
-sr.reveal(`.specs__data, .discount__animate`,{origin: 'left', interval: 100})
-sr.reveal(`.specs__img, .discount__img`,{origin: 'right'})
-sr.reveal(`.case__img`,{origin: 'top'})
-sr.reveal(`.case__data`)
+sr.reveal(`.slide_in, .slide-in-visible`, {delay: 900})
