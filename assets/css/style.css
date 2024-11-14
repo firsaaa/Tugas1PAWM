@@ -426,9 +426,10 @@ h2 {
 }
 
 p {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     margin-top: 2px;
-    margin-bottom: -20px;
+    margin-bottom: 15px;
+    color: grey;
 }
 
 a {
@@ -436,16 +437,18 @@ a {
     text-decoration: none;
 }
 
+
 /* Input Field Styling */
 .input-group {
     margin-top: 0px;
     margin-bottom: 5px;
     text-align: left;
+    color: grey;
 }
 
 .input-group label {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-bottom: 5px;
 }
 
@@ -513,11 +516,11 @@ a {
 
 .social-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .social-btn {
-    width: 100px;
+    width: 1000px;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -525,18 +528,8 @@ a {
     font-size: 0.9rem;
 }
 
-.social-btn.facebook {
-    background-color: #3b5998;
-    color: white;
-}
-
 .social-btn.google {
     background-color: #db4437;
-    color: white;
-}
-
-.social-btn.apple {
-    background-color: black;
     color: white;
 }
 

@@ -1,5 +1,5 @@
-document.getElementById("sign-in-btn").addEventListener("click", async function (e) {
-    e.preventDefault();
+// Registration Function
+async function registerUser () {
     const username = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
@@ -17,21 +17,18 @@ document.getElementById("sign-in-btn").addEventListener("click", async function 
 
         if (response.ok) {
             alert(result.message);
-            window.location.href = "index.html"; // Redirect if successful
+            window.location.href = 'index.html'; 
         } else {
             alert(result.error);
         }
     } catch (error) {
-        console.error("Error during login:", error);
-        alert("An error occurred during login. Please try again.");
+        console.error("Error during registration:", error);
+        alert("An error occurred during registration. Please try again.");
     }
-});
+}
 
-
-
-document.getElementById("loginForm").onsubmit = async function (e) {
-    e.preventDefault(); // Prevent default form submission behavior
-    const username = document.getElementById("name").value;
+// Login Function
+async function loginUser () {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
@@ -41,23 +38,42 @@ document.getElementById("loginForm").onsubmit = async function (e) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username, email, password }),
+            body: JSON.stringify({ email, password }),
         });
 
         const result = await response.json();
 
         if (response.ok) {
-            alert(result.message); // Show success message
-            window.location.href = 'index.html'; // Redirect on successful login
+            alert(result.message);
+            window.location.href = 'index.html'; 
         } else {
-            alert(result.error); // Show error message if login fails
+            alert(result.error);
         }
     } catch (error) {
-        console.error("Error during login:", error); // Log any errors to the console
+        console.error("Error during login:", error);
         alert("An error occurred during login. Please try again.");
     }
-};
+}
 
+// Ensuring buttons are enabled on load
 window.onload = function() {
-    document.getElementById("sign-in-btn").disabled = false;
+    // Enable only the login button explicitly for login page
+    const loginBtn = document.getElementById("login-btn");
+    if (loginBtn) {
+        loginBtn.disabled = false;
+        loginBtn.addEventListener("click", async function (e) {
+            e.preventDefault(); // Prevent default form submission behavior
+            await loginUser (); // Call the login function
+        });
+    }
+
+    // Register button should only be present in register.html
+    const registerBtn = document.getElementById("register-btn");
+    if (registerBtn) {
+        registerBtn.disabled = false;
+        registerBtn.addEventListener("click", async function (e) {
+            e.preventDefault(); // Prevent default form submission behavior
+            await registerUser (); // Call the registration function
+        });
+    }
 };

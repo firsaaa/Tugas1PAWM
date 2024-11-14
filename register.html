@@ -29,10 +29,15 @@
     <!--================ FORM CONTAINER ================-->
     <main class="center-container">
         <div class="form-container">
-            <h3>Login</h3>
-            <p>Don’t have an account? <a href="register.html">Sign up</a></p>
+            <h3>Create an account</h3>
+            <p>Already have an account? <a href="login.html">Log in</a></p>
 
             <form id="loginForm">
+                <div class="input-group">
+                    <label for="name">What should we call you?</label>
+                    <input type="text" id="name" placeholder="Enter your profile name">
+                </div>
+
                 <div class="input-group">
                     <label for="email">What's your email?</label>
                     <input type="email" id="email" placeholder="Enter your email address">
@@ -46,7 +51,7 @@
 
                 <p class="password-info">Use mix of letters & numbers</p>
 
-                <button type="button" class="create-account-btn" id="login-btn">Log in</button>
+                <button type="button" class="create-account-btn" id="register-btn">Sign in</button> <!-- Updated ID -->
             </form>
 
             <p class="terms">By creating an account, you agree to the <a href="#">Terms of use</a> and <a href="#">Privacy Policy</a>.</p>
