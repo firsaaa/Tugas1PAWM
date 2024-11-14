@@ -884,3 +884,32 @@ h2::after {
     padding-top: 8rem;
   }
 }
+
+
+/* POP UP */
+/* Notification styling */
+.custom-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1000;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(150%);
+}
+
+.custom-notification.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+

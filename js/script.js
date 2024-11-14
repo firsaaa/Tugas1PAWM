@@ -136,7 +136,6 @@ navLogo.addEventListener('click', function() {
   }
 });
 
-
   
 
 
