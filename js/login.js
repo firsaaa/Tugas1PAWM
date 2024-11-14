@@ -16,7 +16,7 @@ async function registerUser() {
     }
 
     try {
-        const response = await fetch("https://tugas2pawm-4.onrender.com/auth/register", {
+        const response = await fetch("https://auth-testing-qfda.onrender.com/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -41,12 +41,14 @@ async function registerUser() {
 }
 
 // Login Function
-async function loginUser() {
+async function loginUser () {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
+    console.log("Logging in with:", { email, password }); // Debugging line
+
     try {
-        const response = await fetch("https://tugas2pawm-4.onrender.com/auth/login", {
+        const response = await fetch("https://auth-testing-qfda.onrender.com/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
