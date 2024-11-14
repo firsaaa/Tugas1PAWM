@@ -57,64 +57,56 @@ async function loginUser() {
         const result = await response.json();
 
         if (response.ok) {
-            showNotification(result.message); // Success notification
+            showNotification(result.message, "success"); // Success notification
             setTimeout(() => {
                 window.location.href = 'index.html';
             }, 3000); // Redirect after 3 seconds
         } else {
-            showNotification(result.error); // Error notification
+            showNotification(result.error, "error"); // Error notification
         }
     } catch (error) {
         console.error("Error during login:", error);
-        showNotification("An error occurred during login. Please try again.");
+        showNotification("An error occurred during login. Please try again.", "error");
     }
 }
 
-
 // Ensuring buttons are enabled on load
 window.onload = function() {
-    // Enable only the login button explicitly for login page
     const loginBtn = document.getElementById("login-btn");
     if (loginBtn) {
         loginBtn.disabled = false;
         loginBtn.addEventListener("click", async function (e) {
-            e.preventDefault(); // Prevent default form submission behavior
-            await loginUser (); // Call the login function
+            e.preventDefault(); 
+            await loginUser(); 
         });
     }
 
-    // Register button should only be present in register.html
     const registerBtn = document.getElementById("register-btn");
     if (registerBtn) {
         registerBtn.disabled = false;
         registerBtn.addEventListener("click", async function (e) {
-            e.preventDefault(); // Prevent default form submission behavior
-            await registerUser (); // Call the registration function
+            e.preventDefault(); 
+            await registerUser(); 
         });
     }
 };
 
-function showNotification(message) {
-    // Create the notification div
+// Function to display a custom popup notification
+function showNotification(message, type = "success") {
     let notification = document.createElement('div');
-    notification.className = 'custom-notification';
+    notification.className = `custom-notification ${type}`; // Add success or error type
     notification.innerText = message;
 
-    // Append to the body
     document.body.appendChild(notification);
 
-    // Add the "show" class to trigger the fade-in effect
     setTimeout(() => {
         notification.classList.add('show');
     }, 10);
 
-    // Remove the notification after 3 seconds
     setTimeout(() => {
         notification.classList.remove('show');
         setTimeout(() => {
             notification.remove();
-        }, 500); // Delay to allow transition out
+        }, 500);
     }, 3000); // Display duration
 }
-
-
