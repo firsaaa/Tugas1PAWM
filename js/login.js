@@ -16,7 +16,7 @@ async function registerUser() {
     }
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/auth/register", {
+        const response = await fetch("https://tugas2pawm-4.onrender.com", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -46,7 +46,7 @@ async function loginUser() {
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/auth/login", {
+        const response = await fetch("https://tugas2pawm-4.onrender.com", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
