@@ -16,7 +16,7 @@ async function registerUser() {
     }
 
     try {
-        const response = await fetch("https://tugas2pawm-4.onrender.com/register", {
+        const response = await fetch("https://tugas2pawm-4.onrender.com/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -46,7 +46,7 @@ async function loginUser() {
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("https://tugas2pawm-4.onrender.com/login", {
+        const response = await fetch("https://tugas2pawm-4.onrender.com/auth/login", {
             method: "POST",  // Ensure method is POST
             headers: {
                 "Content-Type": "application/json",
