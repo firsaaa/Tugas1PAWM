@@ -16,7 +16,7 @@ async function registerUser() {
     }
 
     try {
-        const response = await fetch("https://auth-testing-qfda.onrender.com/auth/register", {
+        const response = await fetch("https://tugas2pawm-4.onrender.com/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -41,15 +41,13 @@ async function registerUser() {
 }
 
 // Login Function
-async function loginUser () {
+async function loginUser() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    console.log("Logging in with:", { email, password }); // Debugging line
-
     try {
-        const response = await fetch("https://auth-testing-qfda.onrender.com/auth/login", {
-            method: "POST",
+        const response = await fetch("https://tugas2pawm-4.onrender.com/login", {
+            method: "POST",  // Ensure method is POST
             headers: {
                 "Content-Type": "application/json",
             },
@@ -79,7 +77,7 @@ window.onload = function() {
         loginBtn.disabled = false;
         loginBtn.addEventListener("click", async function (e) {
             e.preventDefault(); 
-            await loginUser(); 
+            await loginUser();
         });
     }
 
