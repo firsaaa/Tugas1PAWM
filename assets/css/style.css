@@ -167,6 +167,26 @@ img {
   z-index: 1;
 }
 
+.header ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.header a {
+  color: #FFFFFF; 
+}
+
+.header a:hover {
+  color: #bbdefb; 
+  transition: 0.3s;
+}
+
+.header a.active {
+  font-weight: bold;
+  color: #004d99;
+}
+
 /*=============== NAV ===============*/
 .nav {
   position: relative;
@@ -537,10 +557,10 @@ nav ul li a {
   font-weight: bold;
 }
 
-.home-icon {
-  width: 3rem;
-  height: 3em;
-  vertical-align: middle;
+.homepage img {
+  width: 2.5rem; /* Adjust the width as needed */
+  height: 2.5rem; /* Adjust the height as needed */
+  vertical-align: middle; /* Aligns the icon vertically in the navbar */
 }
 
 
@@ -856,9 +876,15 @@ h2::after {
   }
 
   .nav__logo {
-    width: 4rem;
-    display: flex;
-    align-items: center;
+    font-size: 2rem; /* Adjust font size if needed */
+    font-weight: bold; /* Same as h1 */
+    color: #003366; /* Adjust to match the title color */
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Optional: same shadow effect */
+    letter-spacing: 2px; /* Adjust to match the title */
+    text-align: center;
+    display: block; /* Ensures proper alignment */
+    transition: all 0.3s ease; /* Smooth hover transition */
   }
 
   .nav__list {
@@ -879,8 +905,10 @@ h2::after {
     grid-template-columns: repeat(2, 1fr);
   }
   .home__img {
-    top: -9rem;
-    left: 4rem;
+    width: 2.5rem; 
+    height: 2.5rem;
+    vertical-align: middle;
+    margin-left: 15px;
   }
   .home__data {
     padding-top: 8rem;
@@ -945,3 +973,105 @@ h2::after {
 .notification.error {
   background-color: #FF5252; /* Red color for error */
 }
+
+/*=============== PROFILE CONTAINER STYLES ===============*/
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 100%; /* Increased width for a wider layout */
+  margin: 50px auto;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.profile-container h2 {
+  font-size: 1.5rem; /* Slightly smaller font size */
+  color: #0861ba;
+  margin-bottom: 10px;
+  background-color: #e8f0fe; /* Light background for heading */
+  padding: 10px 20px;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.profile-container p {
+  font-size: 0.9rem; /* Reduced font size */
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+/* Input Group Styling */
+.input-group {
+  width: 100%;
+  text-align: center;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.8rem;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: left; /* Center-aligns the label text */
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Save Button Styling */
+.save-btn {
+  padding: 10px 20px;
+  background-color: #0861ba;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.save-btn:hover {
+  background-color: #004d99;
+}
+
+/* Notification Popup Styling */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50; /* Default green background */
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  font-weight: bold;
+  z-index: 1000;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(150%);
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.notification.error {
+  background-color: #FF5252; /* Red background for errors */
+}
+
+

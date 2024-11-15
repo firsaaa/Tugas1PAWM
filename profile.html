@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!--================ FAVICON ================-->
+    <link rel="shortcut icon" href="assets/img/logoitb.png" type="image/x-icon">
+    
+    <!--================ ICON ================-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  
+    <!--================ CSS ================-->
+    <link rel="stylesheet" href="assets/css/style.css">
+  
+    <title>Profile Page</title>
+</head>
+<body>
+    <!--================ HEADER ================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" id="nav-logo" class="nav__logo">BERBAHASA</a>
+            <div class="navbar">
+                <ul>
+                    <li><a href="index.html" class="homepage"><img src="assets/img/Home.png" alt="Home"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!--================ PROFILE CONTAINER ================-->
+    <main class="center-container">
+        <div class="profile-container">
+            <h2>Profile Settings</h2>
+            <p>Update your profile information below:</p>
+
+            <form id="profileForm">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" id="currentPassword" placeholder="Enter current password" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" placeholder="Enter new password">
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                </div>
+
+                <button type="submit" class="save-btn">Save Changes</button>
+            </form>
+        </div>
+        <!-- Notification Popup -->
+        <div id="notification" class="notification-popup">Profile updated successfully.</div>
+    </main>
+
+    <!--=============== FOOTER ===============-->
+    <footer class="footer section">
+        <p class="footer__copy">
+          <a target="_blank" class="footer__copy-link">&#169; BERBAHASA. Institut Teknologi Bandung</a>
+        </p>
+    </footer>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>
