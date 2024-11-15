@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const feedback = document.getElementById('feedback');
     const scoreDisplay = document.getElementById('score');
     const gridButtons = document.querySelectorAll('.grid-btn');
+    
     let filledDropzones = {};  // Keeps track of what has been placed in each drop zone
     
     // Function to update score
@@ -144,11 +145,12 @@ document.addEventListener("DOMContentLoaded", function () {
         filledDropzones = {};  // Reset dropzones for the question
     });
 
-    // Move to the next question
+    // Update the "nextButton" event listener
     nextButton.addEventListener('click', () => {
         document.getElementById(`question-${currentQuestion}`).classList.remove('active');
         currentQuestion++;
         if (currentQuestion <= totalQuestions) {
+            // Display the next question
             document.getElementById(`question-${currentQuestion}`).classList.add('active');
             nextButton.style.display = 'none';
             feedback.textContent = '';
@@ -156,7 +158,8 @@ document.addEventListener("DOMContentLoaded", function () {
             submitButton.disabled = true;
             setupDragAndDrop(currentQuestion);
         } else {
-            showFinalScore();  // Only show final score after the last question
+            // Final question reached - show final score and back button
+            showFinalScore();
         }
     });
     
@@ -176,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const sideToolbar = document.getElementById('sideToolbar');
 const navLogo = document.getElementById('nav-logo');
+const backButton = document.createElement('button');
 
 // Add click event to "BERBAHASA" to toggle the sidebar
 navLogo.addEventListener('click', function() {
@@ -186,20 +190,55 @@ navLogo.addEventListener('click', function() {
   }
 });
 
+// Function to show the final message and direct to homepage
 function showFinalScore() {
-    const correctAnswers = score / 10; // Assuming 10 points per correct answer
-    document.getElementById('correct-answers').textContent = correctAnswers;
-    document.getElementById('total-questions').textContent = totalQuestions;
-    
-    // Show the final score section
-    document.querySelector('.score-section').style.display = 'flex';
+    // Hide the Next Question button
+    const nextButton = document.getElementById('next-question');
+    if (nextButton) {
+        nextButton.style.display = 'none';
+    }
 
-    // Change "Next Question" button to "Back to Homepage"
-    nextButton.style.display = 'none'; // Hide the "Next Question" button
-    const backButton = document.getElementById('back-home');
-    backButton.style.display = 'inline-block';  // Show the "Back to Homepage" button
-    backButton.addEventListener('click', function() {
-        window.location.href = "homepage.html";  // Redirect to homepage
-    });
+    // Display a message to go back to the homepage
+    const finalMessage = document.createElement('p');
+    finalMessage.innerHTML = `All questions answered! <a href="index.html" style="color: #0861ba; font-weight: bold;">Go to Homepage</a>`;
+
+    // Add styling to the message
+    finalMessage.style.textAlign = 'center';
+    finalMessage.style.fontSize = '1.2rem';
+    finalMessage.style.marginTop = '20px';
+
+    // Append the message to the quiz container
+    const quizContainer = document.getElementById('quiz-container');
+    quizContainer.appendChild(finalMessage);
+}
+
+// Check if all questions are completed and then call showFinalScore()
+function checkCompletion() {
+    const totalQuestions = 5; // Update this if more questions are added
+    let allAnswered = true;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+        const questionElement = document.getElementById(`question-${i}`);
+        if (questionElement && !questionElement.classList.contains('completed')) {
+            allAnswered = false;
+            break;
+        }
+    }
+
+    if (allAnswered) {
+        showFinalScore();
+    }
+}
+
+// Call checkCompletion() function after each question is completed
+function completeQuestion() {
+    // Mark the current question as completed
+    const currentQuestion = document.querySelector('.question.active');
+    if (currentQuestion) {
+        currentQuestion.classList.add('completed');
+    }
+
+    // Call checkCompletion to see if all questions are done
+    checkCompletion();
 }
 

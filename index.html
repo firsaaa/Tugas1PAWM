@@ -17,9 +17,9 @@
   <link rel="stylesheet" href="assets/css/style.css">
 
   <title>Virtual Lab Institut Teknologi Bandung</title>
-
 </head>
-<body1>
+
+<body>
   <!--================ HEADER ================-->
   <header class="header" id="header">
     <nav class="nav container">
@@ -31,8 +31,9 @@
             <nav>
                 <ul>
                     <li><a href="#home" id="homeLink" class="active">Home</a></li>
-                    <li><a href="#bahasaIndonesia" id="bahasaIndonesia">Bahasa Indonesia</a></li>
-                    <li><a href="#bahasaInggris" id="bahasaInggris">Bahasa Inggris</a></li>
+                    <li><a href="#" id="bahasaIndonesia" onclick="checkLogin('indo.html')">Bahasa Indonesia</a></li>
+                    <li><a href="#" id="bahasaInggris" onclick="checkLogin('english.html')">Bahasa Inggris</a></li>
+                    <li><a href="login.html" id="loginButton">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -40,14 +41,11 @@
         <div class="nav__toggle" id="nav-toggle">
             <i class="ri-function-line"></i>
         </div>
-
     </nav>
-</header>
+  </header>
 
-<main class="main">
-    
-<!-- Main Content -->
-<main>
+  <!--================ MAIN CONTENT ================-->
+  <main class="main">
     <section id="Home">
         <h1>BERBAHASA</h1>
         <h2>Virtual Lab by Institut Teknologi Bandung</h2>
@@ -55,18 +53,21 @@
         <div class="subject-cards">
             <div class="card-indo">
                 <img src="assets/img/indonesia2.png" alt="Bahasa Indonesia">
-                <button onclick="window.location.href='indo.html'"style="padding: 10px 20px; background-color: #004d99; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Bahasa Indonesia</button>
+                <button onclick="checkLogin('indo.html')" style="padding: 10px 20px; background-color: #004d99; color: white; border: none; border-radius: 6px; font-family: 'Poppins', sans-serif; font-weight: bold; cursor: pointer;">Bahasa Indonesia</button>
             </div>
             <div class="card-english">
                 <img src="assets/img/english3.png" alt="Bahasa Inggris">
-                <button<button onclick="window.location.href='english.html'"style="padding: 10px 20px; background-color: #004d99; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Bahasa Inggris</button>
+                <button onclick="checkLogin('english.html')" style="padding: 10px 20px; background-color: #004d99; color: white; border: none; border-radius: 6px; font-family: 'Poppins', sans-serif; font-weight: bold; cursor: pointer;">Bahasa Inggris</button>
             </div>
         </div>
         <section class="overview">
         <h3>Overview</h3>
         <p><strong>Berbahasa</strong> adalah sebuah virtual lab yang dirancang untuk membantu mahasiswa dan mahasiswi ITB belajar dan berlatih Bahasa Indonesia serta Bahasa Inggris secara interaktif. Melalui platform ini, mahasiswa dapat mengakses latihan soal secara interaktif untuk kedua bahasa, dengan pendekatan yang mendukung pembelajaran mandiri dan efektif.</p>
         </section>
-</main>
+      </section>
+  </main>
+
+  <div id="notification" class="notification hidden"></div>
 
 <script src="js/script.js"></script>
 <script src="js/scrollreveal.min.js"></script>
@@ -83,6 +84,30 @@
             this.classList.add('active');
         });
     });
+
+    function checkLogin(page) {
+      const isLoggedIn = false; // This should check actual login status
+      if (isLoggedIn) {
+        window.location.href = page;
+      } else {
+        showNotification("Please log in first!", "error");
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 3000);
+      }
+    }
+
+    function showNotification(message, type = "success") {
+          const notification = document.getElementById("notification");
+          notification.innerText = message;
+          notification.className = `notification ${type}`;
+          notification.classList.add("show");
+
+          setTimeout(() => {
+              notification.classList.remove("show");
+          }, 3000); // Duration for notification display
+      }
+
 </script>
 
 <!--=============== FOOTER ===============-->

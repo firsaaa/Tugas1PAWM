@@ -310,10 +310,10 @@ a {
 }
 
 .homepage img {
-    width: 25px; 
-    height: auto;
-    vertical-align: middle;
-    margin-left: 15px;
+  width: 2.5rem; 
+  height: 2.5rem;
+  vertical-align: middle;
+  margin-left: 15px;
 }
 
 @media screen and (max-width: 767px) {

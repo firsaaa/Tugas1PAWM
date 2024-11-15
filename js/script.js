@@ -136,6 +136,21 @@ navLogo.addEventListener('click', function() {
   }
 });
 
+// Simulated login function
+function simulateLogin() {
+    // Set login status in sessionStorage
+    sessionStorage.setItem("isLoggedIn", true);
+    alert("You are now logged in!");
+    window.location.href = "index.html"; // Redirect to homepage
+}
+
+// Simulate logout function
+function simulateLogout() {
+    sessionStorage.removeItem("isLoggedIn");
+    alert("You have been logged out.");
+    window.location.href = "index.html"; // Redirect to homepage
+}
+
   
 
 
