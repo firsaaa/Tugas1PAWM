@@ -1,3 +1,6 @@
+// Set the API URL directly for frontend usage
+const apiUrl = "https://tugas2pawm-4.onrender.com"; // Replace with your actual API endpoint
+
 // Function to validate email format
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email pattern
@@ -16,7 +19,7 @@ async function registerUser() {
     }
 
     try {
-        const response = await fetch("https://tugas2pawm-4.onrender.com/auth/register", {
+        const response = await fetch(`${apiUrl}/auth/register`, {  // Corrected URL
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -46,8 +49,8 @@ async function loginUser() {
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("https://tugas2pawm-4.onrender.com/auth/login", {
-            method: "POST",  // Ensure method is POST
+        const response = await fetch(`${apiUrl}/auth/login`, {  // Corrected URL
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -57,12 +60,12 @@ async function loginUser() {
         const result = await response.json();
 
         if (response.ok) {
-            showNotification(result.message, "success"); // Success notification
+            showNotification(result.message || "Login successful!", "success");
             setTimeout(() => {
                 window.location.href = 'index.html';
             }, 3000); // Redirect after 3 seconds
         } else {
-            showNotification(result.error, "error"); // Error notification
+            showNotification(result.error || "Login failed. Please try again.", "error");
         }
     } catch (error) {
         console.error("Error during login:", error);
@@ -73,21 +76,31 @@ async function loginUser() {
 // Ensuring buttons are enabled on load
 window.onload = function() {
     const loginBtn = document.getElementById("login-btn");
+    
     if (loginBtn) {
-        loginBtn.disabled = false;
+        console.log("Login button found");  // Debugging statement
+        loginBtn.removeAttribute("disabled"); // Ensure the button is not disabled
         loginBtn.addEventListener("click", async function (e) {
-            e.preventDefault(); 
+            e.preventDefault();
+            console.log("Login button clicked");  // Debugging statement
             await loginUser();
         });
+    } else {
+        console.error("Login button not found");  // Debugging statement
     }
 
+    // Only try to find the register button if it is actually on the page
     const registerBtn = document.getElementById("register-btn");
     if (registerBtn) {
-        registerBtn.disabled = false;
+        console.log("Register button found");  // Debugging statement
+        registerBtn.removeAttribute("disabled"); // Ensure the button is not disabled
         registerBtn.addEventListener("click", async function (e) {
-            e.preventDefault(); 
-            await registerUser(); 
+            e.preventDefault();
+            console.log("Register button clicked");  // Debugging statement
+            await registerUser();
         });
+    } else {
+        console.warn("Register button not found, ignoring");  // Debugging statement
     }
 };
 
