@@ -10,7 +10,7 @@ Web ini dirancang sebagai *virtual lab* yang memungkinkan pengguna untuk:
 
 ## 🚀 Cara Akses Web
 Yuk, coba pengalaman interaktifnya dengan mengunjungi tautan di bawah ini:
-**[BERBAHASA](https://firsaaa.github.io/Tugas1PAWM/login.html)**
+**[BERBAHASA](https://firsaaa.github.io/Tugas1PAWM/index.html)**
 
 ## 💡 Teknologi yang Digunakan
 - **HTML5**: Struktur halaman yang semantik dan ramah *browser*.
