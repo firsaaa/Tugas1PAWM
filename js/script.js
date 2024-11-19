@@ -151,9 +151,13 @@ function simulateLogout() {
     window.location.href = "index.html"; // Redirect to homepage
 }
 
-  
+// Toggle the navbar on mobile
+document.getElementById('nav-toggle').addEventListener('click', function() {
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('active');
+});
 
-
-
-  
-  
+setInterval(() => {
+    localStorage.removeItem("isLogged");
+    localStorage.removeItem("user_id");
+}, 1800000)

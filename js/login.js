@@ -1,3 +1,17 @@
+function checkLogin(page) {
+    if (localStorage.getItem("isLogged") !== null) {
+        if(localStorage.getItem("isLogged") === "true"){
+            console.log("logged in ", localStorage.getItem("user_id"));
+            window.location.href = page;   
+        }
+    } else {
+      showNotification("Please log in first!", "error");
+      setTimeout(() => {
+          window.location.href = 'login.html';
+      }, 3000);
+    }
+  }
+
 // Set the API URL directly for frontend usage
 const apiUrl = "https://tugas2pawm-4.onrender.com"; // Replace with your actual API endpoint
 
@@ -30,6 +44,8 @@ async function registerUser() {
         const result = await response.json();
 
         if (response.ok) {
+            localStorage.setItem("isLogged", "true");
+            localStorage.setItem("user_id", email);
             showNotification("Registration successful! Redirecting...", "success");
             setTimeout(() => {
                 window.location.href = 'index.html'; 
@@ -60,6 +76,8 @@ async function loginUser() {
         const result = await response.json();
 
         if (response.ok) {
+            localStorage.setItem("isLogged", "true");
+            localStorage.setItem("user_id", email);
             showNotification(result.message || "Login successful!", "success");
             setTimeout(() => {
                 window.location.href = 'index.html';
