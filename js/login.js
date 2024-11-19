@@ -1,16 +1,11 @@
 function checkLogin(page) {
-    if (localStorage.getItem("isLogged") !== null) {
-        if(localStorage.getItem("isLogged") === "true"){
-            console.log("logged in ", localStorage.getItem("user_id"));
-            window.location.href = page;   
-        }
+    if (localStorage.getItem("isLogged") === "true") {
+        window.location.href = page;
     } else {
-      showNotification("Please log in first!", "error");
-      setTimeout(() => {
-          window.location.href = 'login.html';
-      }, 3000);
+        alert("Please log in first!");
+        window.location.href = 'login.html';
     }
-  }
+}
 
 // Set the API URL directly for frontend usage
 const apiUrl = "https://tugas2pawm-4.onrender.com"; // Replace with your actual API endpoint
